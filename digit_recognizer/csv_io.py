@@ -2,6 +2,7 @@ import pandas as pd
 
 def read_csv(csv_filename):
 	df = pd.read_csv(csv_filename)
+	df = df.astype(float)
 	return df
 
 if __name__ == "__main__":
