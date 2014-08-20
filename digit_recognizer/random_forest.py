@@ -24,6 +24,7 @@ def main():
     # fit the training data
     print('fitting the model')
     rf.fit(train, target)
+    print("Fitting complete!!!")
     
     # run model against test data
     predicted_probs = rf.predict_proba(realtest)
