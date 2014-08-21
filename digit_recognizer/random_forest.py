@@ -25,12 +25,17 @@ def main():
     print('fitting the model')
     rf.fit(train, target)
     print("Fitting complete!!!")
-    
+
     # run model against test data
     predicted_probs = rf.predict_proba(realtest)
         
-    predicted_probs = ["%f" % x[1] for x in predicted_probs]
-    #csv_io.write_delimited_file("random_forest_solution.csv", predicted_probs)
+    predicted_probs = ["%d" % x[1] for x in predicted_probs]
+
+    total_len = len(predicted_probs)
+
+    result_df = pd.DataFrame({"ImageId" : range(1, total_len + 1), "Label" : predicted_probs[:]})
+
+    csv_io.write_csv("random_forest_solution.csv", result_df)
     
     print ('Random Forest Complete! You Rock! Submit random_forest_solution.csv to Kaggle')
 
