@@ -1,2 +1,4 @@
 __pycache__
 facial_expression_recognizer/training/
+zillow/training
+.ipynb_checkpoints/
